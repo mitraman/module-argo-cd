@@ -22,6 +22,15 @@ provider "helm" {
   }
 }
 
+# debug 
+  provisioner "local-exec" {
+    command = <<EOF
+      echo $PATH
+      ls ~/aws
+      aws-iam-authenticator
+    EOF
+  }
+
 resource "kubernetes_namespace" "example" {
   metadata {
     name = "argo"
