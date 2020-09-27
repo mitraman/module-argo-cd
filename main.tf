@@ -23,6 +23,7 @@ provider "helm" {
 }
 
 # debug 
+resource "null_resource" "custom" {
   provisioner "local-exec" {
     command = <<EOF
       echo $PATH
@@ -30,6 +31,7 @@ provider "helm" {
       aws-iam-authenticator
     EOF
   }
+}
 
 resource "kubernetes_namespace" "example" {
   metadata {
