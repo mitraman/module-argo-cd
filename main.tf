@@ -27,8 +27,9 @@ resource "null_resource" "custom" {
   provisioner "local-exec" {
     command = <<EOF
       echo $PATH
-      ls ~/aws
+      ls -altr ~/aws
       aws-iam-authenticator
+      ~/aws/aws-iam-authenticator
     EOF
   }
 }
